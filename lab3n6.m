@@ -2,6 +2,7 @@ N = 7;
 a = [0.3 0.2 -0.1 4.2 -2 1.5 0];
 b = [0.3 4 -2.2 1.6 0.1 0.1 0.2];
 t = (1:N);
+t2 = (0:N-1);
 max_correlation = -1;
 sdvig = 0;
 corab = 0;
@@ -56,7 +57,7 @@ for n = 0:N-1
     correlation_values(n+1) = normcorab;
     if normcorab > max_correlation
     max_correlation = normcorab;
-    sdvig = n+1;
+    sdvig = n;
     end
 end
 
@@ -79,7 +80,7 @@ xlabel("Номер элемента массива");
 ylabel("Amplitude"); 
 title(dis1);
 subplot(5, 1, 5);
-plot(t,correlation_values);
-xlabel("Номер элемента массива");
+plot(t2,correlation_values);
+xlabel("Номер сдвига");
 ylabel("Amplitude"); 
 title("Зависимость корреляции от сдвига");
